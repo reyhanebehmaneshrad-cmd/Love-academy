@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
-  --foreground-rgb: 74, 74, 74;
-  --background-start-rgb: 255, 253, 251;
-  --background-end-rgb: 255, 253, 251;
+  --color-sage: #8A9A86;
+  --color-muted-peach: #E8C5C8;
+  --color-dusty-rose: #D4A373;
+  --color-terracotta: #B07D62;
+  --color-ivory: #FDFBF7;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb))
-    );
-  font-family: sans-serif; /* در آینده می‌توانید فونت فارسی اضافه کنید */
+  background-color: var(--color-ivory);
+  color: #4A4A4A;
+  font-family: 'Vazirmatn', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: right;
 }
