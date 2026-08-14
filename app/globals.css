@@ -2,20 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;300;400;500;700&display=swap');
 
 :root {
-  --color-sage: #8A9A86;
-  --color-muted-peach: #E8C5C8;
-  --color-dusty-rose: #D4A373;
-  --color-terracotta: #B07D62;
-  --color-ivory: #FDFBF7;
+  --sage: #8A9A86;
+  --peach: #E8C5C8;
+  --rose: #D4A373;
+  --terracotta: #B07D62;
+  --ivory: #FDFBF7;
 }
 
 body {
-  background-color: var(--color-ivory);
+  background-color: var(--ivory);
   color: #4A4A4A;
   font-family: 'Vazirmatn', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-align: right;
+  overflow-x: hidden;
+}
+
+/* استایل ادیتوریال برای تیترها */
+h1, h2 {
+  letter-spacing: -0.02em;
+  font-weight: 300;
 }
