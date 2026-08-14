@@ -1,190 +1,115 @@
 export default function Home() {
-  const courses = [
-    {
-      title: "هنر گفتگو",
-      description: "چگونه بدون قضاوت بشنویم، دقیق‌تر حرف بزنیم و امنیت عاطفی بسازیم.",
-      tag: "مبانی ارتباط",
-    },
-    {
-      title: "زبان‌های عشق",
-      description: "شناخت روش‌های ابراز علاقه و تبدیل تفاوت‌ها به نزدیکی بیشتر.",
-      tag: "شناخت رابطه",
-    },
-    {
-      title: "مدیریت تعارض",
-      description: "یاد می‌گیرید تنش را به گفتگو، و اختلاف را به صمیمیت تبدیل کنید.",
-      tag: "حل مسئله",
-    },
-  ];
-
-  const steps = [
-    "پاسخ به چند سؤال کوتاه",
-    "تحلیل الگوی عاطفی شما",
-    "دریافت پیشنهاد مسیر مناسب",
+  const puzzleVideos = [
+    { title: "امنیت عاطفی", size: "col-span-2 row-span-2", color: "bg-[#e6ddd2]" },
+    { title: "هنر شنیدن", size: "col-span-1 row-span-1", color: "bg-[#d9e4d7]" },
+    { title: "زبان بدن", size: "col-span-1 row-span-1", color: "bg-[#f5ede3]" },
+    { title: "مدیریت خشم", size: "col-span-1 row-span-2", color: "bg-[#f0e6e1]" },
+    { title: "شفقت", size: "col-span-1 row-span-1", color: "bg-stone-200" },
   ];
 
   return (
-    <main className="min-h-screen bg-[#fbf8f2] text-stone-900">
-      {/* Background ornaments */}
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute -top-32 left-[-6rem] h-80 w-80 rounded-full bg-[radial-gradient(circle,_rgba(188,180,165,0.24),_transparent_70%)] blur-2xl" />
-        <div className="absolute right-[-5rem] top-24 h-96 w-96 rounded-full bg-[radial-gradient(circle,_rgba(214,184,164,0.20),_transparent_68%)] blur-2xl" />
-        <div className="absolute bottom-[-7rem] left-1/3 h-96 w-96 rounded-full bg-[radial-gradient(circle,_rgba(170,192,173,0.16),_transparent_70%)] blur-2xl" />
-      </div>
-
-      {/* Header */}
-      <header className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-        <div>
-          <p className="text-xs tracking-[0.35em] text-stone-500">ACADEMY</p>
-          <h1 className="mt-2 text-lg font-semibold tracking-tight">آکادمی عشق و صمیمیت</h1>
+    <main className="min-h-screen bg-[#fbf8f2] font-[Vazirmatn] text-stone-900 overflow-x-hidden">
+      
+      {/* Editorial Header */}
+      <header className="mx-auto flex max-w-7xl items-center justify-between px-8 py-10">
+        <div className="flex flex-col">
+          <span className="text-[10px] tracking-[0.4em] text-stone-500 uppercase">Mehri Ahoui</span>
+          <h1 className="mt-1 text-xl font-bold tracking-tighter text-stone-950">آکادمی عشق و صمیمیت</h1>
         </div>
-
-        <a
-          href="#test"
-          className="rounded-full border border-stone-300 bg-white/70 px-5 py-2 text-sm text-stone-700 shadow-sm backdrop-blur transition hover:border-stone-400 hover:bg-white"
-        >
-          شروع تست
-        </a>
+        <nav className="hidden space-x-8 space-x-reverse text-sm font-medium text-stone-600 md:flex">
+          <a href="#puzzle" className="hover:text-stone-950">دوره ها</a>
+          <a href="#podcast" className="hover:text-stone-950">پادکست</a>
+          <a href="#about" className="hover:text-stone-950">درباره مهری آهوئی</a>
+        </nav>
       </header>
 
-      {/* Hero */}
-      <section className="mx-auto grid w-full max-w-7xl gap-10 px-6 pb-20 pt-6 lg:grid-cols-[1.3fr_0.7fr] lg:items-end lg:px-10 lg:pb-28 lg:pt-12">
-        <div className="max-w-3xl">
-          <p className="mb-4 inline-flex rounded-full border border-stone-300 bg-white/70 px-4 py-1 text-xs tracking-[0.25em] text-stone-600 backdrop-blur">
-            رابطه آگاهانه، صمیمیت پایدار
-          </p>
-
-          <h2 className="text-4xl font-semibold leading-tight tracking-tight text-stone-950 sm:text-5xl lg:text-7xl">
-            رابطه‌ای بسازید که
-            <span className="block text-stone-500">واقعاً امن، عمیق و قابل‌فهم باشد.</span>
-          </h2>
-
-          <p className="mt-6 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
-            مسیرهای آموزشی، تست‌های کاربردی و محتوای ساختاریافته برای شناخت الگوهای عاطفی،
-            بهتر حرف‌زدن، و ساختن نزدیکی پایدار در رابطه.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#courses"
-              className="rounded-full bg-stone-900 px-6 py-3 text-sm font-medium text-white transition hover:bg-stone-800"
-            >
-              مشاهده دوره‌ها
-            </a>
-            <a
-              href="#test"
-              className="rounded-full border border-stone-300 bg-white/70 px-6 py-3 text-sm font-medium text-stone-800 backdrop-blur transition hover:border-stone-400"
-            >
-              تست سبک عاطفی
-            </a>
-          </div>
-        </div>
-
-        {/* Editorial card */}
-        <div className="relative">
-          <div className="rounded-[2rem] border border-stone-200 bg-white/75 p-6 shadow-[0_20px_80px_rgba(0,0,0,0.06)] backdrop-blur">
-            <div className="aspect-[4/5] rounded-[1.5rem] bg-gradient-to-br from-[#e6ddd2] via-[#f5ede3] to-[#d9e4d7] p-6">
-              <div className="flex h-full flex-col justify-between rounded-[1.25rem] border border-white/50 bg-white/35 p-5">
-                <div className="space-y-2">
-                  <p className="text-xs tracking-[0.3em] text-stone-600">EDITORIAL GUIDE</p>
-                  <p className="max-w-xs text-2xl font-medium leading-snug text-stone-900">
-                    سه مسیر برای فهم بهترِ خود و شریک عاطفی‌تان
-                  </p>
-                </div>
-
-                <div className="space-y-3 text-sm text-stone-700">
-                  <div className="flex items-center justify-between border-b border-white/50 pb-2">
-                    <span>شناخت</span>
-                    <span>01</span>
-                  </div>
-                  <div className="flex items-center justify-between border-b border-white/50 pb-2">
-                    <span>گفتگو</span>
-                    <span>02</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>صمیمیت</span>
-                    <span>03</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* Hero Section */}
+      <section className="relative mx-auto max-w-7xl px-8 pt-12 pb-24 text-center">
+        <h2 className="mx-auto max-w-4xl text-5xl font-extrabold leading-[1.15] text-stone-950 md:text-7xl">
+          روایتی مدرن از <span className="text-stone-400 font-light italic">صمیمیت</span> و آگاهی
+        </h2>
+        <p className="mx-auto mt-8 max-w-xl text-lg leading-relaxed text-stone-600">
+          تحت نظارت مهری آهوئی؛ جایی برای یادگیری زبانِ گمشده‌ی رابطه‌ها در دنیای امروز.
+        </p>
       </section>
 
-      {/* Courses */}
-      <section id="courses" className="mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">
-        <div className="mb-8 flex items-end justify-between gap-4">
-          <div>
-            <p className="text-xs tracking-[0.35em] text-stone-500">COURSES</p>
-            <h3 className="mt-2 text-2xl font-semibold tracking-tight text-stone-950 sm:text-3xl">
-              دوره‌های تخصصی
-            </h3>
-          </div>
-          <p className="max-w-md text-sm leading-7 text-stone-600">
-            محتوای ساختاریافته برای یادگیری عمیق، بدون شلوغی بصری و با تأکید بر وضوح.
-          </p>
+      {/* Puzzle Grid Section (Instagram Style) */}
+      <section id="puzzle" className="mx-auto max-w-7xl px-8 pb-32">
+        <div className="mb-12 flex items-end justify-between border-b border-stone-200 pb-6">
+          <h3 className="text-2xl font-semibold tracking-tight">مسیرهای ویدیویی (پازل آموزشی)</h3>
+          <span className="text-sm text-stone-500">مشاهده همه</span>
         </div>
-
-        <div className="grid gap-5 lg:grid-cols-3">
-          {courses.map((course) => (
-            <article
-              key={course.title}
-              className="group rounded-[1.75rem] border border-stone-200 bg-white/80 p-6 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-lg"
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+          {puzzleVideos.map((item, idx) => (
+            <div 
+              key={idx} 
+              className={`${item.size} ${item.color} rounded-[2rem] relative overflow-hidden group cursor-pointer border border-white/40 shadow-sm transition-all duration-500 hover:shadow-2xl hover:-translate-y-1`}
             >
-              <p className="text-xs tracking-[0.25em] text-stone-500">{course.tag}</p>
-              <h4 className="mt-4 text-2xl font-semibold tracking-tight text-stone-950">
-                {course.title}
-              </h4>
-              <p className="mt-3 leading-8 text-stone-600">{course.description}</p>
-              <div className="mt-6 h-px w-full bg-stone-200" />
-              <a
-                href="#test"
-                className="mt-5 inline-flex text-sm font-medium text-stone-900 underline decoration-stone-300 underline-offset-4 transition group-hover:decoration-stone-900"
-              >
-                مشاهده مسیر مرتبط
-              </a>
-            </article>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
+              <div className="absolute bottom-6 right-6">
+                <p className="text-xs tracking-[0.2em] text-stone-600 mb-1 uppercase">Chapter {idx + 1}</p>
+                <h4 className="text-xl font-bold text-stone-900">{item.title}</h4>
+              </div>
+              <div className="absolute top-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                 <div className="w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center">
+                    <div className="w-0 h-0 border-t-[6px] border-t-transparent border-r-[10px] border-r-stone-900 border-b-[6px] border-b-transparent mr-1 rotate-180" />
+                 </div>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Test */}
-      <section id="test" className="mx-auto w-full max-w-7xl px-6 pb-24 lg:px-10 lg:pb-32">
-        <div className="grid gap-6 rounded-[2rem] border border-stone-200 bg-white/80 p-6 shadow-sm backdrop-blur lg:grid-cols-[1fr_0.9fr] lg:p-8">
-          <div>
-            <p className="text-xs tracking-[0.35em] text-stone-500">PERSONAL TEST</p>
-            <h3 className="mt-3 text-2xl font-semibold tracking-tight text-stone-950 sm:text-4xl">
-              سبک عاطفی شما چیست؟
-            </h3>
-            <p className="mt-4 max-w-2xl leading-8 text-stone-600">
-              با این تست ۵ دقیقه‌ای، الگوهای ناخودآگاه خود در رابطه را کشف کنید و ببینید
-              کدام مسیر آموزشی برای شما مناسب‌تر است.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              {steps.map((step, index) => (
-                <div
-                  key={step}
-                  className="rounded-full border border-stone-200 bg-stone-50 px-4 py-2 text-sm text-stone-700"
-                >
-                  <span className="ml-2 font-semibold text-stone-950">{index + 1}</span>
-                  {step}
+      {/* Luxury Podcast Section */}
+      <section id="podcast" className="bg-[#1a1a1a] text-[#fbf8f2] py-32 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-8">
+          <div className="grid md:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="text-[10px] tracking-[0.5em] text-stone-500 uppercase">Station</span>
+              <h3 className="text-4xl md:text-6xl font-bold mt-4 mb-8 leading-tight">پادکست اختصاصی صمیمیت</h3>
+              <p className="text-stone-400 text-lg leading-relaxed mb-12">
+                هر هفته، تحلیل یک چالش واقعی در رابطه. بشنوید تا عمیق‌تر درک کنید.
+              </p>
+              
+              {/* Fake Player */}
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-xl">
+                <div className="flex items-center gap-6">
+                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-peach-200 to-rose-300 shadow-lg" />
+                   <div className="flex-1">
+                      <p className="text-sm font-bold text-white">اپیزود ۲۴: سایه‌های رابطه</p>
+                      <div className="mt-3 h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                         <div className="h-full w-1/3 bg-white" />
+                      </div>
+                   </div>
+                   <button className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition">
+                      ▶
+                   </button>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-
-          <div className="flex items-center justify-center">
-            <a
-              href="#"
-              className="inline-flex min-w-[220px] items-center justify-center rounded-full bg-stone-900 px-7 py-4 text-sm font-medium text-white transition hover:bg-stone-800"
-            >
-              شروع تست ۵ دقیقه‌ای
-            </a>
+            
+            <div className="relative">
+               {/* Abstract decorative element */}
+               <div className="absolute -inset-10 bg-[radial-gradient(circle,_rgba(255,255,255,0.05),_transparent_70%)]" />
+               <div className="aspect-square rounded-full border border-white/10 flex items-center justify-center p-12 animate-pulse-slow">
+                  <div className="w-full h-full rounded-full border border-white/20 flex items-center justify-center p-12">
+                     <div className="w-full h-full rounded-full bg-gradient-to-tr from-stone-800 to-stone-700 shadow-2xl flex items-center justify-center text-4xl">
+                        🎙️
+                     </div>
+                  </div>
+               </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="mx-auto max-w-7xl px-8 py-20 text-center">
+        <div className="h-px w-full bg-stone-200 mb-12" />
+        <p className="text-xs tracking-[0.3em] text-stone-400 uppercase">Designed for Excellence</p>
+        <p className="mt-4 text-stone-600">© ۲۰۲۶ آکادمی عشق و صمیمیت - مهری آهوئی</p>
+      </footer>
     </main>
   );
-                    }
+          }
