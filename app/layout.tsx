@@ -1,8 +1,10 @@
 import "./globals.css";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "آکادمی عشق و صمیمیت",
-  description: "آموزش رابطه، صمیمیت و شناخت الگوهای عاطفی",
+export const metadata: Metadata = {
+  title: "آکادمی عشق و صمیمیت | مهری آهوئی",
+  description: "مرجع تخصصی آموزش صمیمیت و روابط آگاهانه تحت نظارت مهری آهوئی. دوره‌های تخصصی، پادکست و تست‌های خودشناسی.",
+  keywords: ["مهری آهوئی", "عشق و صمیمیت", "آموزش رابطه", "هنر گفتگو", "تست سبک عاطفی"],
 };
 
 export default function RootLayout({
@@ -12,12 +14,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body>{children}</body>
+      <head>
+        <link
+          href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
+          rel="stylesheet"
+          type="text/css"
+        />
+      </head>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
-    export const metadata = {
-      title: "مهری آهوئی | آکادمی عشق و صمیمیت",
-      description: "آموزش‌های تخصصی رابطه، پادکست‌ها و دوره‌های مهری آهوئی برای ساخت رابطه‌ای امن و عمیق.",
-      keywords: ["مهری آهوئی", "مشاوره رابطه", "آکادمی عشق", "هنر گفتگو"],
-    };
