@@ -1,3 +1,4 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fa" dir="rtl">
-      <body>{children}</body>
+      <body className="bg-[#FDFBF7] text-[#4A4A4A] antialiased">
+        {children}
+      </body>
     </html>
   );
 }
