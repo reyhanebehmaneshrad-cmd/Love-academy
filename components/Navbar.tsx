@@ -18,7 +18,7 @@ export default function Navbar() {
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
         <a href="#hero" className="flex items-center gap-2">
           <span className="w-9 h-9 rounded-full bg-gradient-to-br from-terracotta to-rose-500 flex items-center justify-center text-white font-bold">
-            ع
+           
           </span>
           <span className="font-bold text-sage-600">آکادمی عشق و صمیمیت</span>
         </a>
