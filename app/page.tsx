@@ -55,3 +55,14 @@ export default function Home() {
     </main>
   );
         }
+import FaqPreview from "@/components/home/FaqPreview";
+
+export default function Home() {
+  return (
+    <main>
+      {/* سایر بخش‌ها */}
+      <FaqPreview />
+      {/* بخش قیمت و فوتر */}
+    </main>
+  );
+}
