@@ -1,46 +1,10 @@
-@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #fbfaf5; /* Ivory */
-  --foreground: #4a4a4a;
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: 'Vazirmatn', sans-serif;
-  direction: rtl; /* برای فارسی‌سازی کل پروژه */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* استایل‌های سفارشی برای کارت‌ها و المان‌های انتشاراتی */
-@layer components {
-  .btn-premium {
-    @apply px-6 py-2 rounded-full transition-all duration-300 border border-transparent shadow-sm hover:shadow-md active:scale-95;
-  }
-  
-  .card-premium {
-    @apply bg-white/50 backdrop-blur-sm border border-sage-100 rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-500;
-  }
-
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-terracotta to-rose-500;
-  }
-}
-
-/* بهبود اسکرول‌بار */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #fbfaf5;
-}
-::-webkit-scrollbar-thumb {
-  background: #e5b5a2;
-  border-radius: 10px;
+  @apply bg-ivory text-gray-800;
 }
