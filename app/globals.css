@@ -1,51 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #F9F7F2;
-  --foreground: #2D2D2D;
+  --background: #fcfaf7;
+  --foreground: #26332c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--background);
+  margin: 0;
+  background: var(--background);
   color: var(--foreground);
-  font-family: 'Vazirmatn', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
-@layer components {
-  .btn-premium {
-    @apply bg-terracotta text-white px-8 py-3 rounded-full transition-all duration-500 
-           hover:bg-sage hover:shadow-[0_10px_20px_rgba(138,154,91,0.3)] 
-           active:scale-95 font-semibold text-center inline-block;
-  }
-
-  .card-premium {
-    @apply bg-white/50 backdrop-blur-md border border-white/20 rounded-3xl p-8 
-           shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-500 
-           hover:shadow-[0_20px_50px_rgba(166,93,80,0.1)] hover:-translate-y-2;
-  }
-
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-terracotta to-gold font-bold;
-  }
-
-  .section-padding {
-    @apply py-20 px-6 md:py-32 md:px-12;
-  }
+button,
+a,
+input,
+textarea {
+  font: inherit;
 }
 
-/* اسکرول‌بار */
-::-webkit-scrollbar {
-  width: 6px;
+::selection {
+  background: #e9b6a5;
+  color: #26332c;
 }
-::-webkit-scrollbar-track {
-  background: #F1F1F1;
-}
-::-webkit-scrollbar-thumb {
-  background: #A65D50;
-  border-radius: 10px;
-    }
-    
