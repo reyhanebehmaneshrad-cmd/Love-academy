@@ -1,70 +1,93 @@
 'use client';
 
-import { useState } from 'react';
-
-const links = [
-  { href: '#hero', label: 'خانه' },
-  { href: '#course', label: 'دوره' },
-  { href: '#about', label: 'درباره من' },
-  { href: '#testimonials', label: 'نظرات' },
-  { href: '#contact', label: 'تماس' },
-];
+import React, { useState } from 'react';
+import Link from 'next/link';
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-ivory/80 backdrop-blur-md border-b border-sage-100">
-      <nav className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#hero" className="flex items-center gap-2">
-          <span className="w-9 h-9 rounded-full bg-gradient-to-br from-terracotta to-rose-500 flex items-center justify-center text-white font-bold">
-           
-          </span>
-          <span className="font-bold text-sage-600">آکادمی عشق و صمیمیت</span>
-        </a>
+    <nav className="w-full bg-[#faf6f0] border-b border-[#ebd8c3] sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* لوگو / عنوان برند */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="text-xl font-bold text-[#2d2a29] hover:text-[#5c6e58] transition-colors duration-200">
+              آکادمی عشق و صمیمیت
+            </Link>
+          </div>
 
-        <ul className="hidden md:flex items-center gap-8 text-sm text-sage-500">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a href={l.href} className="hover:text-terracotta transition-colors">
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+          {/* منوی دسکتاپ */}
+          <div className="hidden md:block">
+            <div className="mr-10 flex items-baseline space-x-reverse space-x-8">
+              <Link href="/" className="text-[#2d2a29] hover:text-[#5c6e58] font-medium transition-colors duration-200">
+                صفحه اصلی
+              </Link>
+              <Link href="/about" className="text-[#2d2a29]/80 hover:text-[#5c6e58] font-medium transition-colors duration-200">
+                درباره ما
+              </Link>
+              <Link href="/faq" className="text-[#2d2a29]/80 hover:text-[#5c6e58] font-medium transition-colors duration-200">
+                سوالات متداول
+              </Link>
+              <Link href="/contact" className="text-[#2d2a29]/80 hover:text-[#5c6e58] font-medium transition-colors duration-200">
+                تماس با ما
+              </Link>
+            </div>
+          </div>
 
-        <a
-          href="#pricing"
-          className="hidden md:inline-block btn-premium bg-terracotta text-white hover:bg-rose-500 text-sm"
-        >
-          شروع یادگیری
-        </a>
+          {/* دکمه منوی موبایل */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#2d2a29] hover:text-[#5c6e58] focus:outline-none"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {isOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-sage-600 text-2xl"
-          aria-label="منو"
-        >
-          {open ? '✕' : '☰'}
-        </button>
-      </nav>
-
-      {open && (
-        <div className="md:hidden border-t border-sage-100 bg-ivory px-6 py-4">
-          <ul className="flex flex-col gap-4 text-sage-600">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
-              </li>
-            ))}
-            <li>
-              <a href="#pricing" className="btn-premium bg-terracotta text-white inline-block text-center">
-                شروع یادگیری
-              </a>
-            </li>
-          </ul>
+      {/* منوی کشویی موبایل */}
+      {isOpen && (
+        <div className="md:hidden bg-[#faf6f0] border-t border-[#ebd8c3]">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-right">
+            <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 rounded-md text-[#2d2a29] hover:bg-[#5c6e58]/10 hover:text-[#5c6e58] font-medium"
+            >
+              صفحه اصلی
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 rounded-md text-[#2d2a29]/80 hover:bg-[#5c6e58]/10 hover:text-[#5c6e58] font-medium"
+            >
+              درباره ما
+            </Link>
+            <Link
+              href="/faq"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 rounded-md text-[#2d2a29]/80 hover:bg-[#5c6e58]/10 hover:text-[#5c6e58] font-medium"
+            >
+              سوالات متداول
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 rounded-md text-[#2d2a29]/80 hover:bg-[#5c6e58]/10 hover:text-[#5c6e58] font-medium"
+            >
+              تماس با ما
+            </Link>
+          </div>
         </div>
       )}
-    </header>
+    </nav>
   );
 }
