@@ -1,93 +1,164 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+
+const navItems = [
+  {
+    title: "صفحه اصلی",
+    href: "/",
+  },
+  {
+    title: "دوره‌های آموزشی",
+    href: "/courses",
+  },
+  {
+    title: "مقالات",
+    href: "/articles",
+  },
+  {
+    title: "درباره من",
+    href: "/about",
+  },
+  {
+    title: "تماس با من",
+    href: "/contact",
+  },
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-[#faf6f0] border-b border-[#ebd8c3] sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* لوگو / عنوان برند */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold text-[#2d2a29] hover:text-[#5c6e58] transition-colors duration-200">
+    <header
+      dir="rtl"
+      className="sticky top-0 z-50 w-full border-b border-[#ded8cc]/70 bg-[#faf6f0]/95 backdrop-blur-md"
+    >
+      <div className="mx-auto flex h-[82px] max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+        {/* لوگو و نام برند */}
+        <Link
+          href="/"
+          className="group flex items-center gap-3"
+          aria-label="آکادمی عشق و صمیمیت"
+        >
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-[#b88472] bg-[#e8ddd0] shadow-sm">
+            <Image
+              src="/mehri%20Ahooei.jpg"
+              alt="مهری آهوئی"
+              fill
+              priority
+              sizes="48px"
+              className="object-cover object-center transition duration-300 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="flex flex-col leading-tight">
+            <span className="text-[15px] font-bold tracking-tight text-[#304b47] sm:text-[17px]">
               آکادمی عشق و صمیمیت
-            </Link>
-          </div>
+            </span>
 
-          {/* منوی دسکتاپ */}
-          <div className="hidden md:block">
-            <div className="mr-10 flex items-baseline space-x-reverse space-x-8">
-              <Link href="/" className="text-[#2d2a29] hover:text-[#5c6e58] font-medium transition-colors duration-200">
-                صفحه اصلی
-              </Link>
-              <Link href="/about" className="text-[#2d2a29]/80 hover:text-[#5c6e58] font-medium transition-colors duration-200">
-                درباره ما
-              </Link>
-              <Link href="/faq" className="text-[#2d2a29]/80 hover:text-[#5c6e58] font-medium transition-colors duration-200">
-                سوالات متداول
-              </Link>
-              <Link href="/contact" className="text-[#2d2a29]/80 hover:text-[#5c6e58] font-medium transition-colors duration-200">
-                تماس با ما
-              </Link>
-            </div>
+            <span className="mt-1 text-[11px] font-medium text-[#a56f61] sm:text-xs">
+              با مهری آهوئی
+            </span>
           </div>
+        </Link>
 
-          {/* دکمه منوی موبایل */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[#2d2a29] hover:text-[#5c6e58] focus:outline-none"
+        {/* منوی دسکتاپ */}
+        <nav
+          className="hidden items-center gap-7 lg:flex"
+          aria-label="منوی اصلی"
+        >
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="relative py-2 text-sm font-medium text-[#4d5c57] transition-colors duration-200 hover:text-[#a56f61] after:absolute after:bottom-0 after:right-0 after:h-[2px] after:w-0 after:rounded-full after:bg-[#b88472] after:transition-all after:duration-300 hover:after:w-full"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
+              {item.title}
+            </Link>
+          ))}
+        </nav>
+
+        {/* دکمه مشاوره و منوی موبایل */}
+        <div className="flex items-center gap-3">
+          <Link
+            href="/consultation"
+            className="hidden rounded-full bg-[#ad7565] px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#965e50] hover:shadow-md sm:inline-flex"
+          >
+            رزرو وقت مشاوره
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc2] text-[#304b47] transition-colors hover:bg-[#eee5da] lg:hidden"
+            aria-label={isMenuOpen ? "بستن منو" : "باز کردن منو"}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 6l12 12M18 6L6 18"
+                />
               </svg>
-            </button>
-          </div>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 7h16M4 12h16M4 17h16"
+                />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
 
-      {/* منوی کشویی موبایل */}
-      {isOpen && (
-        <div className="md:hidden bg-[#faf6f0] border-t border-[#ebd8c3]">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-right">
+      {/* منوی موبایل */}
+      {isMenuOpen && (
+        <div className="border-t border-[#ded8cc]/70 bg-[#faf6f0] px-5 pb-5 pt-3 lg:hidden">
+          <nav
+            className="mx-auto flex max-w-7xl flex-col"
+            aria-label="منوی موبایل"
+          >
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="border-b border-[#e6ded3] py-4 text-sm font-medium text-[#4d5c57] transition-colors hover:text-[#a56f61]"
+              >
+                {item.title}
+              </Link>
+            ))}
+
             <Link
-              href="/"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-[#2d2a29] hover:bg-[#5c6e58]/10 hover:text-[#5c6e58] font-medium"
+              href="/consultation"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-5 flex items-center justify-center rounded-full bg-[#ad7565] px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#965e50]"
             >
-              صفحه اصلی
+              رزرو وقت مشاوره
             </Link>
-            <Link
-              href="/about"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-[#2d2a29]/80 hover:bg-[#5c6e58]/10 hover:text-[#5c6e58] font-medium"
-            >
-              درباره ما
-            </Link>
-            <Link
-              href="/faq"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-[#2d2a29]/80 hover:bg-[#5c6e58]/10 hover:text-[#5c6e58] font-medium"
-            >
-              سوالات متداول
-            </Link>
-            <Link
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-[#2d2a29]/80 hover:bg-[#5c6e58]/10 hover:text-[#5c6e58] font-medium"
-            >
-              تماس با ما
-            </Link>
-          </div>
+          </nav>
         </div>
       )}
-    </nav>
+    </header>
   );
-}
+          }
