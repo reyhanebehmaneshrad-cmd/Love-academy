@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#faf6f0] text-[#2d2a29]">
+    <main dir="rtl" className="min-h-screen bg-[#F4F1EA] text-[#1B263B]">
       <Navbar />
-      <main className="mx-auto max-w-4xl p-6">
-        <h1 className="text-3xl font-bold">تست Navbar</h1>
-      </main>
-    </div>
+      <Hero />
+    </main>
   );
 }
