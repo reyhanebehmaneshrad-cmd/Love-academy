@@ -1,27 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
-:root {
-  --background: #faf6f0;
-  --foreground: #304b47;
-}
+    * {
+      margin: 0;
+      padding: parow;
+      box-sizing: border-box;
+    }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  direction: rtl;
-}
-
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Tahoma, sans-serif;
-}
-
-a {
-  text-decoration: none;
-}
+    html, body {
+      font-family: Vazirmatn, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
