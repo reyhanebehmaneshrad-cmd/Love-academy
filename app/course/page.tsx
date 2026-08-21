@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RegisterForm from "@/components/RegisterForm";
 
 export const metadata: Metadata = {
   title: "دوره پنج زبان یک رابطه | آکادمی عشق و صمیمیت",
@@ -18,7 +19,7 @@ const modules = [
   },
   {
     title: "گفت‌وگو در تعارض",
-    text: "در sensitized شدن یا فاصله گرفتن، آرام و شفاف حرف می‌زنید.",
+    text: "وقتی فاصله می‌گیرید یا حساس می‌شوید، آرام و شفاف حرف می‌زنید.",
   },
   {
     title: "عادت‌های روزانه صمیمیت",
@@ -101,22 +102,13 @@ export default function CoursePage() {
       <section id="register" className="section">
         <div className="container panel">
           <span className="badge">قدم بعد</span>
-          <h2>شروع مسیر</h2>
+          <h2>ثبت‌نام در دوره</h2>
           <p className="lead">
-            اگر آماده‌اید رابطه را با یک چارچوب مشخص پیش ببرید،
-            از همین‌جا ثبت‌نام کنید.
+            فرم را بفرستید تا جزئیات دوره و هماهنگی شروع برایتان ارسال شود.
           </p>
-          <div className="cta-actions">
-            <a href="mailto:hello@love-academy.ir" className="btn btn-primary">
-              درخواست ثبت‌نام
-            </a>
-            <Link href="/" className="btn btn-secondary">
-              بازگشت به صفحه اصلی
-            </Link>
-          </div>
+          <RegisterForm />
         </div>
       </section>
     </>
   );
-  }
-      
+}
