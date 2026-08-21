@@ -403,3 +403,46 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
     }
+.register-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.register-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--navy-900);
+  font-weight: 700;
+}
+
+.register-form input,
+.register-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--navy-900);
+}
+
+.register-form textarea {
+  resize: vertical;
+}
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+}
+
+.form-ok {
+  color: var(--turquoise-600);
+  font-weight: 700;
+}
+
+.form-error {
+  color: var(--coral-600);
+  font-weight: 700;
+}
