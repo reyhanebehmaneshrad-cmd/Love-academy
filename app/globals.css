@@ -1,11 +1,199 @@
-    @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+:root {
+  --sand-50: #FBF7F0;
+  --sand-100: #F4E9D8;
+  --sand-200: #E7D4B8;
+  --sand-300: #D4B892;
 
-    * {
-      margin: 0;
-      padding: parow;
-      box-sizing: border-box;
-    }
+  --navy-900: #0B1F3A;
+  --navy-800: #14304F;
+  --navy-700: #1D4066;
+  --navy-100: #E8EEF5;
 
-    html, body {
-      font-family: Vazirmatn, -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+  --teal-700: #0F7A76;
+  --teal-600: #168F8B;
+  --teal-500: #1FA4A0;
+  --teal-50: #E7F6F5;
+
+  --coral-600: #C95549;
+  --coral-500: #E36A5D;
+  --coral-50: #FDECEA;
+
+  --white: #FFFcf8;
+  --text: var(--navy-900);
+  --muted: #4A5B70;
+  --border: #E4D3BC;
+  --shadow: 0 10px 30px rgba(11, 31, 58, 0.08);
+  --radius: 18px;
+  --container: 1120px;
+  --font: "Vazirmatn", "IRANSansX", "Tahoma", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  direction: rtl;
+  font-family: var(--font);
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 100% -10%, rgba(31, 164, 160, 0.10), transparent 50%),
+    radial-gradient(900px 420px at -10% 0%, rgba(227, 106, 93, 0.08), transparent 46%),
+    var(--sand-50);
+  line-height: 1.9;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--teal-700);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--coral-600);
+}
+
+.container {
+  width: min(var(--container), calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(251, 247, 240, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  color: var(--navy-900);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1, h2, h3 {
+  margin: 0 0 0.6em;
+  color: var(--navy-900);
+  line-height: 1.45;
+}
+
+h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+h2 { font-size: clamp(1.35rem, 2.6vw, 2rem); }
+
+.lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 40rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--coral-500);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(227, 106, 93, 0.28);
+}
+
+.btn-primary:hover {
+  background: var(--coral-600);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: var(--navy-900);
+  color: var(--sand-50);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--navy-800);
+  border-color: var(--border);
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem 1.35rem;
+}
+
+.card:hover {
+  border-color: #c9e7e5;
+  box-shadow: 0 14px 34px rgba(11, 31, 58, 0.10);
+}
+
+.badge {
+  display: inline-flex;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--teal-50);
+  color: var(--teal-700);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.section-navy {
+  background: var(--navy-900);
+  color: #f6efe4;
+}
+
+.section-navy h2,
+.section-navy p {
+  color: inherit;
+}
+
+input, textarea, select {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--navy-900);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid rgba(31, 164, 160, 0.28);
+  border-color: var(--teal-500);
+}
+
+.site-footer {
+  background: var(--navy-900);
+  color: #d9e2ee;
+  padding: 40px 0;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 48px 0; }
+  .btn { width: 100%; }
+                    }
+    
