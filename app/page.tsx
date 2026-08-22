@@ -1,11 +1,22 @@
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Link from "next/link";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main dir="rtl" className="min-h-screen bg-[#F4F1EA] text-[#1B263B]">
-      <Navbar />
-      <Hero />
+    <main>
+      <section className="hero">
+        <div className="container">
+          <span className="badge">آکادمی عشق و صمیمیت</span>
+          <h1>پنج زبان یک رابطه</h1>
+          <p className="lead">
+            یک مسیر آرام برای فهمیدن زبان عشق و ساختن صمیمیتی که بماند.
+          </p>
+          <div className="hero-actions">
+            <Link href="/course" className="btn btn-primary">
+              مشاهده دوره
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
