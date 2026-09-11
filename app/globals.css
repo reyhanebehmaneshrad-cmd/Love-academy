@@ -1,31 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap");
 
-/* =========================
-   Brand Design Tokens
-========================= */
+/* =========================================
+   متغیرهای اصلی برند
+========================================= */
 
 :root {
   --sand-50: #fcf8f2;
-  --sand-100: #f6ecdf;
-  --sand-200: #ead8c2;
+  --sand-100: #f5eadc;
+  --sand-200: #ead7c0;
 
   --navy: #112f43;
-  --navy-soft: #244555;
+  --navy-soft: #294b5d;
 
   --turquoise: #2aa7a1;
   --turquoise-dark: #197e7c;
+  --turquoise-light: #dff3f0;
 
   --coral: #e47a67;
   --coral-dark: #c96153;
+  --coral-light: #fbe3dc;
 
-  --white: #fffef: #657379;
-ed: #657379;
-  --border: #e6d8c7;
+  --white: #fffefc;
+  --muted: #657379;
+  --border: #e5d6c4;
+  --success: #37876c;
+  --danger: #b44e4e;
 
-  --container: 1180px;
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 30px;
+  --container-width: 1180px;
+
+  --radius-small: 12px;
+  --radius-medium: 18px;
+  --radius-large: 30px;
   --radius-pill: 999px;
 
   --shadow-soft: 0 18px 50px rgba(17, 47, 67, 0.08);
@@ -34,9 +39,9 @@ ed: #657379;
   --transition: 180ms ease;
 }
 
-/* =========================
+/* =========================================
    Reset
-========================= */
+========================================= */
 
 *,
 *::before,
@@ -45,23 +50,21 @@ ed: #657379;
 }
 
 html {
-  scroll-behavior: smooth;
   direction: rtl;
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
   min-width: 320px;
+  margin: 0;
   background: var(--sand-50);
   color: var(--navy);
-  font-family:
-    "Vazirmatn",
-    "IRANSansX",
-    "Tahoma",
-    sans-serif;
+  font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
   line-height: 1.9;
-  text-align: right;
-  -webkit-font-smoothing: antialiased;
+ ,
+input,
+textarea,
+select -webkit-font-smoothing: antialiased;
 }
 
 body,
@@ -72,15 +75,10 @@ select {
   font-family: inherit;
 }
 
-img {
+img,
+svg {
   display: block;
   max-width: 100%;
-  height: auto;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
 }
 
 button {
@@ -97,57 +95,48 @@ p,
 h1,
 h2,
 h3,
-h1,
-h2,
-h30;
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 ::selection {
-  color: var(--navy);
   background: var(--coral);
+  color: var(--navy);
 }
-
-/* =========================
-   Accessibility
-========================= */
 
 :focus-visible {
   outline: 3px solid var(--turquoise);
   outline-offset: 4px;
 }
 
-.skip-link {
-  position: fixed;
-  top: 12px;
-  right: 12px;
-  z-index: 9999;
-  padding: 10px 16px;
-  border-radius: var(--radius-pill);
-  background: var(--navy);
-  color: var(--white);
-  transform: translateY(-150%);
-  transition: transform var(--transition);
-}
-
-.skip-link:focus {
-  transform: translateY(0);
-}
-
-/* =========================
-   Layout
-========================= */
+/* =========================================
+   کلاس‌های عمومی
+========================================= */
 
 .container {
-  width: min(calc(100% - 32px), var(--container));
+  width: min(var(--container-width), calc(100% - 32px));
   margin-inline: auto;
 }
 
 .section {
-  padding-block: clamp(72px, 9vw, 128px);
+  padding-block: clamp(70px, 9vw, 125px);
 }
 
 .section--soft {
   background: var(--sand-100);
+}
+
+.section--white {
+  background: var(--white);
 }
 
 .section--navy {
@@ -155,56 +144,61 @@ h30;
   color: var(--white);
 }
 
-/* =========================
-   Header
-========================= */
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =========================================
+   هدر سایت
+========================================= */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(230, 216, 199, 0.8);
-  background: rgba(252, 248, 242, 0.88);
+  border-bottom: 1px solid rgba(229, 214, 196, 0.85);
+  background: rgba(252, 248, 242, 0.92);
   backdrop-filter: blur(16px);
 }
 
 .header-inner {
   display: flex;
-  min-height: 76px;
+  min-height: 78px;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  gap: 24  align-items: center;
+  justify-content: space-between;
+  gap: 24 gap: 10px;
   color: var(--navy);
-  font-weight: 800;
   white-space: nowrap;
 }
 
 .brand-mark {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 43px;
+  height: 43px;
   place-items: center;
   border-radius: 14px;
   background: var(--coral);
   color: var(--navy);
-  font-size: 20px;
-  box-shadow: 0 8px 18px rgba(228, 122, 103, 0.2);
+  font-size: 21px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(228, 122, 103, 0.22);
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .brand-title {
   font-size: 15px;
+  font-weight: 800;
 }
 
 .brand-subtitle {
@@ -224,9 +218,7 @@ h30;
   color: var(--navy-soft);
   font-size: 14px;
   font-weight: 600;
-  transition:
-    color var(--transition),
-    opacity var(--transition);
+  transition: color var(--transition);
 }
 
 .main-nav a::after {
@@ -235,7 +227,7 @@ h30;
   bottom: -8px;
   width: 0;
   height: 2px;
-  border-radius: 10px;
+  border-radius: var(--radius-pill);
   background: var(--turquoise);
   content: "";
   transition: width var(--transition);
@@ -249,9 +241,9 @@ h30;
   width: 100%;
 }
 
-/* =========================
-   Buttons
-========================= */
+/* =========================================
+   دکمه‌ها
+========================================= */
 
 .btn {
   display: inline-flex;
@@ -259,7 +251,7 @@ h30;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 12px 23px;
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
   font-size: 14px;
@@ -270,6 +262,7 @@ h30;
     transform var(--transition),
     background-color var(--transition),
     border-color var(--transition),
+    color var(--transition),
     box-shadow var(--transition);
 }
 
@@ -308,19 +301,28 @@ h30;
   background: var(--navy-soft);
 }
 
-/* =========================
-   Hero
-========================= */
+.btn-light {
+  background: var(--white);
+  color: var(--navy);
+}
+
+.btn-light:hover {
+  background: var(--sand-100);
+}
+
+/* =========================================
+   بخش Hero
+========================================= */
 
 .hero {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: clamp(72px, 10vw, 150px);
+  padding-block: clamp(75px, 10vw, 145px);
   background:
     radial-gradient(
       circle at 10% 20%,
-      rgba(42, 167, 161, 0.13),
+      rgba(42, 167, 161, 0.14),
       transparent 28%
     ),
     linear-gradient(135deg, var(--sand-50), var(--sand-100));
@@ -328,12 +330,12 @@ h30;
 
 .hero::before {
   position: absolute;
-  top: -180px;
+  top: -170px;
   left: -120px;
   z-index: -1;
   width: 420px;
   height: 420px;
-  border: 1px solid rgba(42, 167, 161, 0.18);
+  border:  167, 16142, 167, 161, 0.18);
   border-radius: 50%;
   content: "";
 }
@@ -342,16 +344,18 @@ h30;
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
   align-items: center;
-  gap: clamp(44px, 8vw, 100px);
+  gap: clamp(45px, 8vw, 100px);
+}
+
+.hero-copy {
+  max-width: 720px;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: ebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: px;
+  gap: 8px;
+  padding: 8px 14px;
   border: 1px solid rgba(42, 167, 161, 0.25);
   border-radius: var(--radius-pill);
   background: rgba(42, 167, 161, 0.08);
@@ -363,19 +367,20 @@ h30;
 .eyebrow::before {
   width: 7px;
   height: 7px;
+  flex: 0 0 7px;
   border-radius: 50%;
   background: var(--coral);
   content: "";
 }
 
 .hero h1 {
-  max-width: 720px;
-  margin-bottom: 22px;
+  max-width: 750px;
+  margin-block: 20px 22px;
   color: var(--navy);
-  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  font-size: clamp(2.2rem, 5vw, 4.7rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .hero h1 strong {
@@ -399,10 +404,13 @@ h30;
   position: relative;
   min-height: 420px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 42% 58% 55% 45% / 42% 42% 58% 58%;
   background:
-    linear-gradient(145deg, rgba(42, 167, 161, 0.96), rgba(25, 126, 124, 0.95)),
+    linear-gradient(
+      145deg,
+      rgba(42, 167, 161, 0.96),
+      rgba(25, 126, 124, 0.96)
+    ),
     var(--turquoise);
   box-shadow: var(--shadow-soft);
 }
@@ -413,8 +421,10 @@ h30;
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 50%;
   content: "";
-visual::before {
-  top:  top: 12%;
+}
+
+.hero-visual::before {
+  top: 10%;
   left: 10%;
   width: 220px;
   height: 220px;
@@ -434,8 +444,8 @@ visual::before {
   left: 10%;
   padding: 28px;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius-lg);
- ,  rgba(17, 47, 67, 0.93);
+  border-radius: var(--radius-large);
+  background: rgba(17, 47, 67, 0.93);
   color: var(--white);
   box-shadow: 0 20px 45px rgba(17, 47, 67, 0.2);
 }
@@ -449,16 +459,19 @@ visual::before {
 
 .hero-card h2 {
   margin-bottom: 12px;
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
-rem, 3vw, 2.2rem);
- p {
-  margin-bottom: 0;
+  color: var(--white);
+  font-size: clamp(1.35rem, 3vw, 2.15rem);
+  line-height: 1.5;
+}
+
+.hero-card p {
+  margin: 0;
   color: rgba(255, 254, 252, 0.78);
 }
 
-/* =========================
-   Section Headings
-========================= */
+/* =========================================
+   عنوان بخش‌ها
+========================================= */
 
 .section-heading {
   max-width: 700px;
@@ -467,11 +480,11 @@ rem, 3vw, 2.2rem);
 
 .section-heading--center {
   margin-inline: auto;
-  text-align;
+  text-align: center;
 }
 
 .section-kicker {
-  display: block: block;
+  display: block;
   margin-bottom: 10px;
   color: var(--coral-dark);
   font-size: 14px;
@@ -486,14 +499,14 @@ rem, 3vw, 2.2rem);
 }
 
 .section-heading p {
-  margin-bottom: 0;
+  margin: 0;
   color: var(--muted);
   font-size: 1rem;
 }
 
-/* =========================
-   Language Cards
-========================= */
+/* =========================================
+   کارت‌های پنج زبان رابطه
+========================================= */
 
 .language-grid {
   display: grid;
@@ -502,11 +515,11 @@ rem, 3vw, 2.2rem);
 }
 
 .language-card {
-  min-height: 230px;
+  min-height: 235px;
   padding: 24px 20px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  background: rgba(255, 254, 252, 0.72);
+  border-radius: var(--radius-medium);
+  background: rgba(255, 254, 252, 0.78);
   box-shadow: var(--shadow-card);
   transition:
     transform var(--transition),
@@ -524,39 +537,40 @@ rem, 3vw, 2.2rem);
   display: grid;
   width: 42px;
   height: 42px;
-  margin-bottom: 24px;
+  margin-bottom: 23px;
   place-items: center;
-  border-radius: 14px;
+  border background: var(--sand;
   background: var(--sand-200);
   color: var(--navy);
   font-weight: 800;
 }
 
 .language-card:nth-child(2) .language-number {
-  background: rgba(42, 167, 161, 0.16);
+  background: var(--turquoise-light);
   color: var(--turquoise-dark);
 }
 
 .language-card:nth-child(3) .language-number {
-  background: rgba(228, 122, 103, 0.18);
+  background: var(--coral-light);
   color: var(--coral-dark);
 }
 
 .language-card h3 {
   margin-bottom: 10px;
+  color: var(--navy);
   font-size: 1.05rem;
 }
 
 .language-card p {
-  margin-bottom: 0;
+  margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
-/* =========================
-   Feature / Benefit Cards
-========================= */
+/* =========================================
+   کارت‌های مزایا و محتوای دوره
+========================================= */
 
 .feature-grid {
   display: grid;
@@ -566,9 +580,18 @@ rem, 3vw, 2.2rem);
 
 .feature-card {
   padding: 28px 24px;
-  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  border-radius: var(--radius-medium);
   background: var(--white);
   box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition),
+    border-color var(--transition);
+}
+
+.feature-card:hover {
+  border-color: var(--border);
+  transform: translateY(-4px);
 }
 
 .feature-icon {
@@ -578,29 +601,30 @@ rem, 3vw, 2.2rem);
   margin-bottom: 18px;
   place-items: center;
   border-radius: 16px;
-  background: rgba(42, 167, 161, 0.13);
+  background: var(--turquoise-light);
   color: var(--turquoise-dark);
-  font-size: 22px;
+  font-size: 21px;
 }
 
 .feature-card h3 {
   margin-bottom: 10px;
+  color: var(--navy);
   font-size: 1.05rem;
 }
 
 .feature-card p {
-  margin-bottom: 0;
+  margin: 0;
   color: var(--muted);
   font-size: 0.92rem;
 }
 
-/* =========================
-   Course Details / Stats
-========================= */
+/* =========================================
+   جزئیات دوره
+========================================= */
 
 .course-layout {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
   align-items: start;
   gap: 28px;
 }
@@ -608,7 +632,7 @@ rem, 3vw, 2.2rem);
 .course-panel {
   padding: clamp(24px, 4vw, 42px);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-large);
   background: var(--white);
   box-shadow: var(--shadow-card);
 }
@@ -616,6 +640,7 @@ rem, 3vw, 2.2rem);
 .course-panel h2,
 .course-panel h3 {
   margin-bottom: 14px;
+  color: var(--navy);
 }
 
 .course-panel p {
@@ -631,7 +656,7 @@ rem, 3vw, 2.2rem);
 
 .stat {
   padding: 18px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-medium);
   background: var(--sand-100);
 }
 
@@ -639,7 +664,7 @@ rem, 3vw, 2.2rem);
   display: block;
   margin-bottom: 4px;
   color: var(--navy);
-  font-size: 1.1rem;
+  font-size: 1.08rem;
 }
 
 .stat span {
@@ -647,20 +672,59 @@ rem, 3vw, 2.2rem);
   font-size: 0.85rem;
 }
 
-/* =========================
-   CTA
-========================= */
+/* =========================================
+   لیست‌ها
+========================================= */
+
+.check-list {
+  display: grid;
+  gap: 13px;
+  margin-top: 22px;
+}
+
+.check  li {
+  position: relative;
+  padding-right: 30px;
+  color: var(--navy-soft);
+}
+
+.check-list li::before {
+  position: absolute;
+  top: 9px;
+  right: 0;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--turquoise);
+  content: "";
+}
+
+.check-list li::after {
+  position: absolute;
+  top: 12px;
+  right: 5px;
+  width: 7px;
+  height: 4px;
+  border-bottom: 2px solid var(--white);
+  border-left: 2px solid var(--white);
+  content: "";
+  transform: rotate(-45deg);
+}
+
+/* =========================================
+   بخش فراخوان اقدام
+========================================= */
 
 .cta-box {
   position: relative;
   isolation: isolate;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 28px;
   padding: clamp(28px, 5vw, 56px);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-large);
   background: var(--navy);
   color: var(--white);
   box-shadow: var(--shadow-soft);
@@ -687,22 +751,22 @@ rem, 3vw, 2.2rem);
 
 .cta-box p {
   max-width: 620px;
-  margin-bottom: 0;
+  margin: 0;
   color: rgba(255, 254, 252, 0.75);
 }
 
-.cta-box .btn-primary {
+.cta-box .btn {
   white-space: nowrap;
 }
 
-/* =========================
-   Forms
-========================= */
+/* =========================================
+   فرم ثبت‌نام
+========================================= */
 
 .form-card {
   padding: clamp(24px, 4vw, 40px);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-large);
   background: var(--white);
   box-shadow: var(--shadow-card);
 }
@@ -734,7 +798,7 @@ rem, 3vw, 2.2rem);
 .field select {
   width: 100%;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-small);
   outline: none;
   background: var(--sand-50);
   color: var(--navy);
@@ -753,8 +817,8 @@ rem, 3vw, 2.2rem);
 
 .field textarea {
   min-height: 130px;
-  resize: vertical;
   padding: 12px 14px;
+  resize: vertical;
 }
 
 .field input::placeholder,
@@ -763,19 +827,74 @@ rem, 3vw, 2.2rem);
 }
 
 .field input:focus,
-.field textarea:focus,
+ background textarea:focus,
 .field select:focus {
   border-color: var(--turquoise);
   background: var(--white);
   box-shadow: 0 0 0 4px rgba(42, 167, 161, 0.12);
 }
 
-/* =========================
-   Footer
-========================= */
+.form-note {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* =========================================
+   سوالات متداول
+========================================= */
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.faq-item {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-medium);
+  background: var(--white);
+}
+
+.faq-item summary {
+  position: relative;
+  padding: 20px 24px;
+  cursor: pointer;
+  color: var(--navy);
+  font-weight: 700;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  position: absolute;
+  left: 24px;
+  content: "+";
+  color: var(--turquoise-dark);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-answer {
+  padding: 0 24px 22px;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+/* =========================================
+   فوتر
+========================================= */
 
 .site-footer {
-  padding-block: 50px 24px;
+  padding-block: 54px 24px;
   background: var(--navy);
   color: var(--white);
 }
@@ -791,9 +910,15 @@ rem, 3vw, 2.2rem);
   color: var(--white);
 }
 
-.site-footer .brand-subtitle,
-.footer-description {
+.site-footer .brand-subtitle {
   color: rgba(255, 254, 252, 0.62);
+}
+
+.footer-description {
+  max-width: 390px;
+  margin-top: 16px;
+  color: rgba(255, 254, 252, 0.62);
+  font-size: 0.9rem;
 }
 
 .footer-title {
@@ -825,14 +950,15 @@ rem, 3vw, 2.2rem);
   padding-top: 22px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 254, 252, 0.5);
-  font-size: 0.8rem;
+  font-size: 0.8
+;
 }
 
-/* =========================
-   Responsive
-========================= */
+/* =========================================
+   نسخه تبلت
+========================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   .language-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -847,18 +973,23 @@ rem, 3vw, 2.2rem);
   }
 
   .hero-copy {
-    max-width: 760px;
+    max-width: 780px;
   }
 
   .hero-visual {
+    width: min(100%, 650px);
     min-height: 360px;
-    max-width: 620px;
+    margin-inline: auto;
   }
 }
 
+/* =========================================
+   نسخه موبایل
+========================================= */
+
 @media (max-width: 720px) {
   .container {
-    width: min(calc(100% - 24px), var(--container));
+    width: min(var(--container-width), calc(100% - 24px));
   }
 
   .site-header {
@@ -874,20 +1005,35 @@ rem, 3vw, 2.2rem);
   }
 
   .header-inner > .btn {
-    min-height: 42px;
+    min-height: 43px;
     padding-inline: 15px;
     font-size: 12px;
   }
 
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .brand-title {
+    font-size: 13px;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
   .hero {
-    padding-block: 64px 80px;
+    padding-block: 68px 80px;
   }
 
   .hero h1 {
     font-size: clamp(2rem, 11vw, 3rem);
   }
 
-  .hero: column    align-items: stretch;
+  .hero-actions {
+    align-items: stretch;
     flex-direction: column;
   }
 
@@ -900,8 +1046,23 @@ rem, 3vw, 2.2rem);
     border-radius: 32% 68% 58% 42% / 35% 44% 56% 65%;
   }
 
+  .hero-card {
+    right: 8%;
+    bottom: 9%;
+    left: 8%;
+    padding: 22px;
+  }
+
+  .hero-card h2 {
+    font-size: 1.35rem;
+  }
+
   .language-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+ font-size: 1.35rem;
+  }
+
+  .language-grid {
+fr));
   }
 
   .feature-grid,
@@ -923,7 +1084,7 @@ rem, 3vw, 2.2rem);
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 30px;
   }
 
   .footer-bottom {
@@ -931,6 +1092,10 @@ rem, 3vw, 2.2rem);
     flex-direction: column;
   }
 }
+
+/* =========================================
+   موبایل‌های کوچک
+========================================= */
 
 @media (max-width: 440px) {
   .language-grid {
@@ -941,10 +1106,22 @@ rem, 3vw, 2.2rem);
     grid-template-columns: 1fr;
   }
 
-  .brand-subtitle {
-    display: none;
+  .section {
+    padding-block: 65px;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+  }
+
+  .hero-card {
+    padding: 19px;
   }
 }
+
+/* =========================================
+   کاهش انیمیشن برای کاربران حساس
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   html {
