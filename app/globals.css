@@ -4,14 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================================
+/* ===============================
    Love Academy Global Styles
-   RTL - Next.js - Tailwind Compatible
-========================================= */
+================================ */
 
 :root {
   --sand: #efe1cc;
-  --sand-light: #faf:ef;
+  --sand-light: #faf6ef;
   --sand-dark: #d8c1a1;
 
   --turquoise: #53c8c1;
@@ -31,18 +30,20 @@
   --border: rgba(20, 45, 69, 0.12);
 
   --container-width: 1180px;
+
   --radius-sm: 12px;
- px;
-  -- 20px;
+  --radius-md: 20px;
   --radius-lg: 32px;
 
   --shadow-sm: 0 8px 25px rgba(20, 45, 69, 0.07);
   --shadow-md: 0 18px 45px rgba(20, 45, 69, 0.12);
 }
 
-/* ---------- Reset ---------- */
+/* Reset */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -92,7 +93,7 @@ button {
   cursor: pointer;
 }
 
-/* ---------- Typography ---------- */
+/* Typography */
 
 h1,
 h2,
@@ -129,7 +130,7 @@ p {
   text-align: center;
 }
 
-/* ---------- Shared Layout ---------- */
+/* Layout */
 
 .container {
   width: min(calc(100% - 2rem), var(--container-width));
@@ -164,7 +165,7 @@ p {
   content: "";
 }
 
-/* ---------- Header ---------- */
+/* Header */
 
 .site-header {
   position: sticky;
@@ -184,7 +185,8 @@ p {
 }
 
 .logo {
-  display: inline gap:  align-items: center;
+  display: inline-flex;
+  align-items: center;
   gap: 0.65rem;
   color: var(--navy);
   font-weight: 900;
@@ -218,7 +220,7 @@ p {
   color: var(--coral-dark);
 }
 
-/* ---------- Buttons ---------- */
+/* Buttons */
 
 .btn {
   display: inline-flex;
@@ -260,7 +262,7 @@ p {
   background: var(--turquoise-light);
 }
 
-/* ---------- Hero ---------- */
+/* Hero */
 
 .hero {
   position: relative;
@@ -287,16 +289,14 @@ p {
 }
 
 .hero h1 {
-  max-width: {
-  max;
+  max-width: 720px;
   margin-bottom: 1.5rem;
 }
 
 .hero p {
   max-width: 650px;
   color: var(--navy-light);
-  font-size: clamp {
-1rem, 2vw, 1.22rem);
+  font-size: clamp(1rem, 2vw, 1.22rem);
 }
 
 .hero-actions {
@@ -306,7 +306,7 @@ p {
   margin-top: 2rem;
 }
 
-/* ---------- Cards ---------- */
+/* Cards */
 
 .cards-grid {
   display: grid;
@@ -318,9 +318,8 @@ p {
   padding: 1.7rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background: rgba(255, 253, 250, 0.85);
-  box-shadow: var(--shadow-sm);
-  transition:
+  background: rgba(255, 253, 250, 253, 250, 0.85);
+  box-shadow: transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
     border-color 0.2s ease;
@@ -339,7 +338,7 @@ p {
   margin-bottom: 1.2rem;
   place-items: center;
   border-radius: 16px;
-  background: var(--turquoise-light);
+.card p: var(--turquoise-light);
   color: var(--turquoise-dark);
 }
 
@@ -348,7 +347,7 @@ p {
   font-size: 0.95rem;
 }
 
-/* ---------- Course Section ---------- */
+/* Course */
 
 .course-highlight {
   display: grid;
@@ -376,7 +375,7 @@ p {
   color: white;
 }
 
-/* ---------- Forms ---------- */
+/* Forms */
 
 .form-wrapper {
   max-width: 760px;
@@ -437,7 +436,7 @@ p {
   box-shadow: 0 0 0 4px rgba(83, 200, 193, 0.18);
 }
 
-/* ---------- Footer ---------- */
+/* Footer */
 
 .site-footer {
   padding: 4rem 0 1.5rem;
@@ -473,7 +472,7 @@ p {
   font-size: 0.85rem;
 }
 
-/* ---------- Accessibility ---------- */
+/* Accessibility */
 
 :focus-visible {
   outline: 3px solid var(--turquoise-dark);
@@ -485,7 +484,7 @@ p {
   color: var(--navy);
 }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 
 @media (max-width: 900px) {
   .cards-grid {
@@ -515,11 +514,12 @@ p {
   }
 
   .hero {
-    padding: 5rem 0 4.50 4.5rem;
+    padding: 5rem 0 4.5rem;
   }
 
   .hero-actions {
-       align-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .btn {
@@ -542,7 +542,7 @@ p {
   }
 
   h1 {
-    font-size: clamp(2rem,vw, 3.2rem2rem);
+    font-size: clamp(2rem, 11vw, 3.2rem);
   }
 }
 
@@ -554,5 +554,5 @@ p {
     transition: none !important;
     animation: none !important;
   }
-  }
-    
+     }
+   
